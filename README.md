@@ -17,4 +17,4 @@ Secuencias preguntadas:
 * 7 colores
 * 7 colores
 
-El puntaje asignado al test corresponde a la suma del largo de las secuencias que fueron correctamente repetidas.
+El puntaje asignado al test corresponde a la suma del largo de las secuencias que fueron correctamente repetidas (Máximo 47 puntos)
