@@ -103,17 +103,28 @@ function execute() {
 
 		var oTest = {
 			date: (new Date()).toISOString(),
-			correct: 0,
-			incorrect: 0,
+			correct: "",
+			incorrect: "",
 			points: 0
 		};
 
 		for( var i in window.aCurrentTest ){
+
+            var sPrefix = " - ";
+
 			if(window.aCurrentTest[i].correct){
-				oTest.correct++;
+
+                if(oTest.correct == ""){
+                    sPrefix = "";
+                }
+
+				oTest.correct += sPrefix + window.aCurrentTest[i].secuence.length;
 				oTest.points += window.aCurrentTest[i].secuence.length;
 			} else {
-				oTest.incorrect++;
+                if(oTest.incorrect == ""){
+                    sPrefix = "";
+                }
+                oTest.incorrect += sPrefix + window.aCurrentTest[i].secuence.length;
 			}
 		}
 
