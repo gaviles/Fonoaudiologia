@@ -1,7 +1,7 @@
 # Fonoaudiologia
 Recursos para evaluaciones fonoaudiológicas.
 
-## Test de Memoria Trabajo
+## Test: Memoria de Trabajo
 
 El test de memoria de trabajo consiste en una secuencia de colores, que luego el paciente debe responer en el mismo orden.
 
