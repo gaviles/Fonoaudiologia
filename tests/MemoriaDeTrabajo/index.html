@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Colores</title>
+    <link href="codigo/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body{
+        background-color: black;
+        overflow: hidden;
+      }
+
+      select{
+          height: 34px;
+          padding: 6px 12px;
+          font-size: 14px;
+          line-height: 1.42857143;
+          color: #555;
+          background-color: #fff;
+          background-image: none;
+          border: 1px solid #ccc;
+          border-top-right-radius:5px;
+          border-bottom-right-radius:5px;
+          width: 100%;
+      }
+
+      .Color{
+        opacity:0.3;
+      }
+
+      .cuatroColores .Color{
+        width: 100%;
+        height: 40vh;
+      }
+      .Rojo{
+        background-color: red;
+      }
+      .Rojo.light, .Clickable .Rojo:hover{
+        opacity:1;
+      }
+      .Azul{
+        background-color: blue;
+      }
+      .Azul.light, .Clickable .Azul:hover{
+        opacity:1;
+      }
+      .Amarillo{
+        background-color: yellow;
+      }
+      .Clickable .Amarillo:hover, .Amarillo.light{
+        opacity:1;
+      }
+      .Verde{
+        background-color: green;
+      }
+      .Verde.light, .Clickable .Verde:hover{
+        opacity:1;
+      }
+      .mainRow{
+        padding: 0px;
+        margin-top: 10vh;
+        background-color: black;
+        height: 100vh;
+      }
+      .cuatroColores .col-sm-6{
+        padding: 5px;
+      }
+
+      .alert-button{
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        top:50%;
+        left:50%;
+        margin-left: -125px;
+        margin-top: -125px;
+      }
+      .alert-button input{
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        font-size: 2.5em;
+      }
+
+      .boxes .col-sm-1{
+        padding: 5px;
+      }
+      .boxes .col-sm-1 div{
+        background-color: #ddd;
+        border-radius: 5px;
+        border: solid 1px #bbb;
+        width:100%;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+      }
+
+      @media (max-width: 750px) {
+        .cuatroColores .Color{
+          width: 100%;
+          height: 18vh;
+        }
+      }
+    </style>
+
+  </head>
+  <body>
+    
+    <div class="row mainRow" style="p:50px;">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-10">
+        <div class="row cuatroColores">
+          <div class="col-sm-6">
+            <button type="button" class="btn Color Rojo" onclick="onClick('Rojo')" ></button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn Color Azul" onclick="onClick('Azul')" ></button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn Color Verde" onclick="onClick('Verde')" ></button>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn Color Amarillo" onclick="onClick('Amarillo')" ></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+
+    <div class="modal fade" id="patientsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-body">
+            <div class="row" style="padding-bottom:10px;">
+              <div class="col-sm-12" >
+                <div class="input-group">
+                  <span class="input-group-addon" id="basic-addon1">Paciente</span>
+                  <select id="selected-patient">
+                      <option value="null" > Seleccione un Paciente </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default" >
+              <div class="panel-heading">
+                <h3 class="panel-title">Crear Paciente</h3>
+              </div>
+              <div class="panel-body create-patient-panel">
+                <div class="input-group" style="width:100%;padding-bottom:5px;" >
+                  <input id="patient-name" type="text" class="form-control" placeholder="Nombre" aria-describedby="sizing-addon2">
+                </div>
+                <div class="input-group" style="width:100%;padding-bottom:5px;" >
+                  <input id="patient-age" type="number" class="form-control" placeholder="Edad" aria-describedby="sizing-addon2">
+                </div>
+                <div class="btn-group" data-toggle="buttons" style="width:100%;padding-bottom:5px;" >
+                  <label class="btn btn-default active" style="width:50%;">
+                    <input type="radio" name="options" id="patient-control" autocomplete="off" checked> Grupo Control
+                  </label>
+                  <label class="btn btn-default" style="width:50%;">
+                    <input type="radio" name="options" id="patient-sample" autocomplete="off"> Grupo Muestral
+                  </label>
+                </div>
+
+                <div class="btn-group" role="group" style="width:100%;" >
+                  <button onclick="cratePatient()" class="btn btn-default">Guardar</button>
+                </div>
+              </div>
+            </div>
+            <a href="//gaviles.github.io/Fonoaudiologia" target="_blank" >Sitio web del proyecto.</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" onclick="downloadData()" >Descarga Resultados</button>
+            <button type="button" class="btn btn-primary" onclick="start()" >Realizar Test</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="alert-button start-button" onclick="start()" >
+      <input class="btn btn-default" type="button" value="Comenzar" >
+    </div>
+    <div class="answer-button alert-button"  onclick="answer()" >
+      <input class="btn btn-default" type="button" value="Responder" >
+    </div>
+
+    <div class="continue-button alert-button"  onclick="Continue()" >
+      <input class="btn btn-default" type="button" value="Continuar" >
+    </div>
+
+    <script src="codigo/js/jquery.min.js"></script>
+    <script src="codigo/js/bootstrap.min.js"></script>
+    <script src="codigo/js/codigo.js"></script>
+  </body>
+</html>
