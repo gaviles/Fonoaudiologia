@@ -1,7 +1,7 @@
 # Fonoaudiologia
 Recursos para evaluaciones fonoaudiológicas.
 
-## Test: Memoria de Trabajo
+## Test: Memoria de Trabajo [Abrir Test](http://gaviles.github.io/Fonoaudiologia/tests/MemoriaDeTrabajo)
 
 El test de memoria de trabajo consiste en una secuencia de colores, que luego el paciente debe responer en el mismo orden.
 
@@ -9,15 +9,15 @@ Secuencias preguntadas:
 * 2 colores
 * 2 colores
 * 3 colores
+* 3 colores
+* 4 colores
 * 4 colores
 * 5 colores
 * 5 colores
 * 6 colores
 * 6 colores
-* 7 colores
-* 7 colores
 
-El puntaje asignado al test corresponde a la suma del largo de las secuencias que fueron correctamente repetidas (Máximo 47 puntos)
+El puntaje asignado al test corresponde a la suma del largo de las secuencias que fueron correctamente repetidas (Máximo 40 puntos)
 
 ## Lisencia
 Copyright (c) 2015 Gustavo Avilés
