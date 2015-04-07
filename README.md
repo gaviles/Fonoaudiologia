@@ -19,7 +19,7 @@ Secuencias preguntadas:
 
 El puntaje asignado al test corresponde a la suma del largo de las secuencias que fueron correctamente repetidas (Máximo 40 puntos)
 
-## Lisencia
+## Licensia
 Copyright (c) 2015 Gustavo Avilés
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
